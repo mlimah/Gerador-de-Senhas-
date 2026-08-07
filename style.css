@@ -113,15 +113,36 @@ width: 100%;
 }
 
 .fraca{
-    background-color: red;var
+    background-color: rgb(98, 0, 255);
     height: 30px;
     width : 33%;
+    position: relative;
+    bottom: 30px;
 }
 
+
+/*Criar a barra Media e Forte*/
+.media {
+    background-color: rgb(82, 163, 28);
+    height: 30px;
+    width: 66%;
+    position: relative;
+    bottom: 30px;
+}
+
+.forte {
+ background-color: rgb(146, 56, 142);
+    height: 30px;
+    width: 100%;
+    position: relative;
+    bottom: 30px;
+
+}
 
 
 @media screen and (min-width: 768px) {
     .parametro-coluna__senha{
         flex-direction: row;
     }
+    
 }
