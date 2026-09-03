@@ -1,6 +1,7 @@
 const numeroSenha = document.querySelector('.parametro-senha__texto')
 const campoSenha = document.querySelector('#campo-senha')
-
+let LetrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let LetrasMinuscula = "abcdefghijklmnopqrstuvwxyz"
 campoSenha.value = 'sabs21'
 
 
@@ -16,6 +17,7 @@ function diminuir(){
     // diminui de 1 em 1 e mostra na tela
     tamanhoSenha--;
     numeroSenha.textContent = tamanhoSenha;
+geraSenha()
 }
 
 // BOTAO DE AUMENTAR
@@ -26,4 +28,19 @@ function AUMENTAR(){
     // aumenta de 1 em 1 e mostra na tela
     tamanhoSenha++;
     numeroSenha.textContent = tamanhoSenha;
+geraSenha()
+}
+
+// FUNÇAO DE CRIAR A SENHA ALEATORIA
+geraSenha()
+
+function geraSenha() {
+    let senha = ""
+    // LOOP - repetições 
+    for ( let i = 0; i< tamanhoSenha; i++){
+        let numeroAleatorio = Math.random() * 26;
+        numeroAleatorio = Math.floor(numeroAleatorio)
+        senha += LetrasMaiusculas[numeroAleatorio]
+    }
+    campoSenha.value = senha;
 }
