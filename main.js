@@ -1,5 +1,9 @@
 const numeroSenha = document.querySelector('.parametro-senha__texto')
 const campoSenha = document.querySelector('#campo-senha')
+
+const forcaSenha = document.querySelector(".forca")
+forcaSenha.classList.add('media')
+
 let LetrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let LetrasMinuscula = "abcdefghijklmnopqrstuvwxyz"
 campoSenha.value = 'sabs21'
@@ -43,4 +47,11 @@ function geraSenha() {
         senha += LetrasMaiusculas[numeroAleatorio]
     }
     campoSenha.value = senha;
+    claificarSenha()
+}
+// FUNÇÃO CLASSSIFICAR SENHA
+function claificarSenha(){
+    if (tamanhoSenha > 11  ) {
+        forcaSenha.classList.add('forte')
+        }
 }
