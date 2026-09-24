@@ -18,10 +18,14 @@ const botoes = document.querySelectorAll('.parametro-senha__botao')
 botoes[0].onclick = diminuir;
 // funçao diminuir
 function diminuir(){
+    if(tamanhoSenha > 0 ){
     // diminui de 1 em 1 e mostra na tela
-    tamanhoSenha--;
+          tamanhoSenha--;
     numeroSenha.textContent = tamanhoSenha;
 geraSenha()
+    }
+    
+  
 }
 
 // BOTAO DE AUMENTAR
@@ -29,10 +33,13 @@ geraSenha()
 botoes[1].onclick = AUMENTAR;
 // funçao AUMENTAR
 function AUMENTAR(){
-    // aumenta de 1 em 1 e mostra na tela
+    if(tamanhoSenha < 20) {
+       // aumenta de 1 em 1 e mostra na tela
     tamanhoSenha++;
     numeroSenha.textContent = tamanhoSenha;
-geraSenha()
+geraSenha() 
+    }
+    
 }
 
 // FUNÇAO DE CRIAR A SENHA ALEATORIA
@@ -51,7 +58,14 @@ function geraSenha() {
 }
 // FUNÇÃO CLASSSIFICAR SENHA
 function claificarSenha(){
+    forcaSenha.classList.remove('forte', 'media', 'fraca')
     if (tamanhoSenha > 11  ) {
         forcaSenha.classList.add('forte')
+
+        } else if(tamanhoSenha < 7){
+            forcaSenha.classList.add('fraca')
+        }else{
+            forcaSenha.classList.add('media')
         }
+
 }
