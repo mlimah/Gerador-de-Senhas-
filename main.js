@@ -7,7 +7,7 @@ forcaSenha.classList.add('media')
 let LetrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let LetrasMinuscula = "abcdefghijklmnopqrstuvwxyz"
 campoSenha.value = 'sabs21'
-
+let simbolos = "!@#$%&*"
 
 tamanhoSenha = 8
 numeroSenha.textContent = tamanhoSenha;
@@ -24,7 +24,8 @@ function diminuir(){
     numeroSenha.textContent = tamanhoSenha;
 geraSenha()
     }
-    
+    // checkbox[0]=
+
   
 }
 
@@ -46,12 +47,33 @@ geraSenha()
 geraSenha()
 
 function geraSenha() {
-    let senha = ""
+    
+    let alfabeto = '' 
+
+    //local que verifica qual checkbox foi clicada
+    //e adiciona no alfabeto
+    if(checkbox[0].checked){
+        alfabeto = alfabeto + LetrasMaiusculas
+    }
+    if(checkbox[1].checked){
+        alfabeto = alfabeto + LetrasMinuscula
+    }
+    if(checkbox[2].checked){
+        alfabeto = alfabeto + numeroSenha
+    }
+    if(checkbox[3].checked){
+        alfabeto = alfabeto + simbolos
+    }
+
+    
+    
+    
+    let senha = ''
     // LOOP - repetições 
     for ( let i = 0; i< tamanhoSenha; i++){
-        let numeroAleatorio = Math.random() * 26;
+        let numeroAleatorio = Math.random() * alfabeto.length;
         numeroAleatorio = Math.floor(numeroAleatorio)
-        senha += LetrasMaiusculas[numeroAleatorio]
+        senha += alfabeto[numeroAleatorio]
     }
     campoSenha.value = senha;
     claificarSenha()
